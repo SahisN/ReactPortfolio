@@ -1,22 +1,27 @@
-import { Card, CardBody, Flex, Text } from "@chakra-ui/react"
+import { Card, CardBody, Center, Flex, Image, Text } from "@chakra-ui/react"
 import { darkBlue } from "../colors/useColors"
 
+interface props {
+    imgPath : string,
+    title: string,
+    index: number,
+}
 
-const TechnologyCard = () => {
+const TechnologyCard = ({title, imgPath, index} : props) => {
   return (
     <Flex>
-        <Card backgroundColor={darkBlue} borderRadius='25px' border='2px solid black'>
+        <Card key={index} backgroundColor={darkBlue} borderRadius='18px' border='1px solid grey' >
             <CardBody textAlign='center'>
-                <Text marginBottom='10px'>
-                    Icon
-                </Text>
-                
-                <Text>
-                    Title
+                <Center>
+                    <Image src={imgPath} />
+                </Center>
+                <Text marginTop='15px' textColor='white' fontWeight='bold'>
+                    {title}
                 </Text>
             </CardBody>
         </Card>
     </Flex>
+   
   )
 }
 
